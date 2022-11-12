@@ -49,7 +49,7 @@ public class JPushEventReceiver extends JPushMessageReceiver {
         Log.d(TAG, "transmitNotificationOpen __" + message.toString());
         Map<String, Object> msg = new HashMap<>();
         msg.put("data", new Gson().toJson(message));
-        JPushPlugin.instance.channel.invokeMethod("onOpenNotification", notification);
+        JPushPlugin.instance.channel.invokeMethod("onOpenNotification", msg);
     }
 
     /**
