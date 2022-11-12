@@ -57,10 +57,13 @@ public class JPushEventReceiver extends JPushMessageReceiver {
      */
     @Override
     public void onNotifyMessageArrived(Context context, NotificationMessage message) {
-        Log.d(TAG, "transmitNotificationReceive__:" + message.toString() + "/n" + Thread.currentThread());
+        Log.d(TAG, "transmitNotificationReceive__:" + message.toString() + "\n" + Thread.currentThread());
+
         Map<String, Object> msg = new HashMap<>();
         msg.put("data", new Gson().toJson(message));
-        JPushPlugin.instance.channel.invokeMethod("onReceiveNotification", msg);
+//        JPushPlugin.instance.channel.invokeMethod("onReceiveNotification", msg);
+        JPushPlugin.instance.runMainThread(msg, null, "onReceiveNotification");
+
     }
 
     @Override
