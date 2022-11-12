@@ -44,7 +44,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     private List<Result> getRidCache;
 
     private Context context;
-    private MethodChannel channel;
+    public MethodChannel channel;
     public Map<Integer, Result> callbackMap;
     private int sequence;
 
