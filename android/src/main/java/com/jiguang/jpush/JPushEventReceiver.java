@@ -33,7 +33,7 @@ public class JPushEventReceiver extends JPushMessageReceiver {
      */
     @Override
     public void onMessage(Context context, CustomMessage customMessage) {
-        Log.d(TAG, "handlingMessageReceive __" + customMessage.toString());
+        Log.d(TAG, "handlingMessageReceive __:" + customMessage.toString());
         Map<String, Object> msg = new HashMap<>();
         msg.put("data", new Gson().toJson(customMessage));
         JPushPlugin.instance.channel.invokeMethod("onReceiveMessage", msg);
@@ -46,7 +46,7 @@ public class JPushEventReceiver extends JPushMessageReceiver {
      */
     @Override
     public void onNotifyMessageOpened(Context context, NotificationMessage message) {
-        Log.d(TAG, "transmitNotificationOpen __" + message.toString());
+        Log.d(TAG, "transmitNotificationOpen __:" + message.toString());
         Map<String, Object> msg = new HashMap<>();
         msg.put("data", new Gson().toJson(message));
         JPushPlugin.instance.channel.invokeMethod("onOpenNotification", msg);
@@ -57,7 +57,7 @@ public class JPushEventReceiver extends JPushMessageReceiver {
      */
     @Override
     public void onNotifyMessageArrived(Context context, NotificationMessage message) {
-        Log.d(TAG, "transmitNotificationReceive __" + message.toString());
+        Log.d(TAG, "transmitNotificationReceive__:" + message.toString() + "/n" + Thread.currentThread());
         Map<String, Object> msg = new HashMap<>();
         msg.put("data", new Gson().toJson(message));
         JPushPlugin.instance.channel.invokeMethod("onReceiveNotification", msg);
