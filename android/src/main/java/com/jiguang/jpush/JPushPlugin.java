@@ -32,7 +32,7 @@ import io.flutter.plugin.common.MethodChannel.Result;
 public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
 
 
-    private static String TAG = "| JPUSH | Flutter | Android | ";
+    private static String TAG = "| JPUSH | Flutter | Android |___________ ";
 
     public static JPushPlugin instance;
 
@@ -72,7 +72,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
 
     @Override
     public void onMethodCall(MethodCall call, Result result) {
-        Log.i(TAG, call.method);
+        Log.i(TAG, "onMethodCall:"+call.method);
         if (call.method.equals("getPlatformVersion")) {
             result.success("Android " + android.os.Build.VERSION.RELEASE);
         } else if (call.method.equals("setup")) {
