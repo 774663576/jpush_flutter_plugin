@@ -26,7 +26,7 @@ import cn.jpush.android.service.JPushMessageReceiver;
 import io.flutter.plugin.common.MethodChannel.Result;
 
 public class JPushEventReceiver extends JPushMessageReceiver {
-    private static String TAG = "| JPUSH | Flutter | Android | ";
+    private static String TAG = "| JPUSH | Flutter | Android |___________ ";
 
     /**
      * 收到自定义消息回调
@@ -148,7 +148,7 @@ public class JPushEventReceiver extends JPushMessageReceiver {
     @Override
     public void onAliasOperatorResult(Context context, final JPushMessage jPushMessage) {
         super.onAliasOperatorResult(context, jPushMessage);
-
+        Log.i(TAG, "onAliasOperatorResult_" + jPushMessage.toString());
         final int sequence = jPushMessage.getSequence();
 
         final Result callback = JPushPlugin.instance.callbackMap.get(sequence);
